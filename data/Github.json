@@ -1,0 +1,56 @@
+[
+  {
+    "infobox": "website"
+  }, 
+  {
+    "name": "GitHub"
+  }, 
+  {
+    "logo": "[[File:GitHub logo 2013.svg|140px]]"
+  }, 
+  {
+    "screenshot": ""
+  }, 
+  {
+    "logocaption": "The GitHub logo"
+  }, 
+  {
+    "caption": ""
+  }, 
+  {
+    "url": "{{URL|https://github.com}}"
+  }, 
+  {
+    "alexa": "{{DecreasePositive}} 203 ({{as of|2013|12|1|alt=December 2013}})<ref name=\"alexa\">{{cite web|url= http://www.alexa.com/siteinfo/GitHub.com |title= Github.com Site Info | publisher= [[Alexa Internet]] |accessdate= 2013-12-01 }}</ref><!--Updated monthly by OKBot.-->"
+  }, 
+  {
+    "commercial": "Yes"
+  }, 
+  {
+    "employees": "158{{cite web | url = https://github.com/blog/1470-five-years | title = Five years | date = 10 April 2013 | first = Tom | last = Preston-Werner}}"
+  }, 
+  {
+    "type": "[[Collaborative editing|Collaborative]] [[revision control]]"
+  }, 
+  {
+    "language": "[[English language|English]]"
+  }, 
+  {
+    "registration": "Optional <small>(required for creating and joining projects)</small>"
+  }, 
+  {
+    "owner": "[https://github.com/  GitHub, Inc.]"
+  }, 
+  {
+    "launch date": "April 2008<ref name=\"launched\">"
+  }, 
+  {
+    "current status": "Online"
+  }, 
+  {
+    "slogan": "''Social Coding (for all)''"
+  }, 
+  {
+    "headquarters": "San Francisco"
+  }
+]

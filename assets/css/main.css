@@ -1,0 +1,36 @@
+body {
+  padding-top: 60px;
+}
+/*.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+*/
+td {
+   word-break: normal;
+}
+
+.js-infobox {
+    width: 22em;
+}
+
+.js-infobox table {
+    width: 22em;
+    font-size: 88%;
+}
+
+.js-infobox table th {
+    vertical-align: top;
+    background: grey;
+    padding: 10px;
+
+}
+
+.js-infobox table td {
+    padding: 10px;
+}
+
+
+.js-table {
+    display: table;
+}
