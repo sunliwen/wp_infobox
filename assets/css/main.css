@@ -11,11 +11,10 @@ td {
 }
 
 .js-infobox {
-    width: 22em;
 }
 
 .js-infobox table {
-    width: 22em;
+    max-width: 22em;
     font-size: 88%;
 }
 
@@ -33,4 +32,8 @@ td {
 
 .js-table {
     display: table;
+}
+
+.js-fields {
+    font-size: 88%;
 }
