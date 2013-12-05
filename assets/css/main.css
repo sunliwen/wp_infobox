@@ -34,6 +34,6 @@ td {
     display: table;
 }
 
-.js-fields {
-    font-size: 88%;
+.js-fields .badge {
+    font-size: 75%;
 }

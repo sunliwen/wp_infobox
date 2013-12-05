@@ -50,65 +50,56 @@
       <div class="row">
 
         <div class="js-infobox col-sm-4" style="border: 1px solid red">
-          <div class="container">
-            <div class="row">
-              <div id="infobox-table" class="col-sm-12">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4" style="border: 1px solid red">
           <div class="row">
             <div class="col-md-12">
-              Header
+
               <div class="row">
                 <div class="col-md-6">
-                  Title
+                  <span class="row js-title">Title</span>
+                  <span class="row js-type">type</span>  
                 </div>
                 <div class="col-md-6">
                   <img src="http://placehold.it/200x100" class="img-responsive">
                 </div>
               </div>
+
               <hr>
+              
               <div class="row js-fields">
-                <div class="col-md-3"><a href="#">Fields <span class="badge">1</span></a></div>
-                <div class="col-md-3"><a href="#">Profiles <span class="badge">2</span></a></div>
-                <div class="col-md-3"><a href="#">Vital <span class="badge">3</span></a></div>
-                <div class="col-md-3"><a href="#">Useful <span class="badge">4</span></a></div>
+                <div class="pull-left"><a href="#"><span id="js-info-fields" class="badge">Fields 1</span></a></div>
+                <div class="pull-left"><a href="#"><span id="js-info-profiles" class="badge">Profiles 2</span></a></div>
+                <div class="pull-left"><a href="#"><span id="js-info-vitals" class="badge">Vital 3</span></a></div>
+                <div class="pull-left"><a href="#"><span id="js-info-usefuls" class="badge">Useful 4</span></a></div>
+                <div class="pull-left"><a href="#"><span id="js-info-batches" class="badge">Batch 5</span></a></div>
               </div>  
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4" style="border: 1px solid red">
-          <div class="row">
-            <div class="col-md-12">
-              Header
+              
               <div class="row">
-                <div class="col-md-6">
-                  Title
-                </div>
-                <div class="col-md-6">
-                  <img src="http://placehold.it/200x100" class="img-square img-responsive">
+                <div id="info-fields-table" class="col-sm-12" style="display:none">
                 </div>
               </div>
-              <hr>
-              <div class="row js-fields">
-                <div class="col-md-3"><a href="#">Fields <span class="badge">1</span></a></div>
-                <div class="col-md-3"><a href="#">Profiles <span class="badge">2</span></a></div>
-                <div class="col-md-3"><a href="#">Vital <span class="badge">3</span></a></div>
-                <div class="col-md-3"><a href="#">Useful <span class="badge">4</span></a></div>
-              </div>   
+
+              <div class="row">
+                <div id="info-batches-table" class="col-sm-12" style="display:none">
+
+                </div>
+              </div>
+
             </div>
+
+
           </div>
         </div>
-
 
       </div>
 
     </div><!-- /.container -->
 
-    <script id="infobox-table-template" type="text/x-handlebars-template">
+    <script id="info-table-template" type="text/x-handlebars-template">
       {{#table fields}}{{/table}}
+    </script>
+
+    <script id="info-batches-table-template" type="text/x-handlebars-template">
+      {{#batches-table batches}}{{/batches-table}}
     </script>
 
     <!-- Bootstrap core JavaScript
@@ -122,16 +113,54 @@
 
     <script>
       $.ajax({ 
-        url:"data/David_Bowie.json", 
+        url:"data/Joey_Mantia.json", 
       })
       .done(function(data){
-        //console.log(data);
+        $("#js-info-fields").text("Fields " + data.length);
 
-        var source = $("#infobox-table-template").html();
+        $("#js-info-fields").on("click", function(){
+          $("#info-fields-table").toggle();
+        });
+
+        var source = $("#info-table-template").html();
         var template = Handlebars.compile(source);
         var html = template({'fields': data});
         //console.log(html);
-        $("#infobox-table").html(html);
+        $("#info-fields-table").html(html);
+      });
+
+      $.ajax({ 
+        url:"data/Joey_Mantia_batches.json", 
+      })
+      .done(function(data){
+        console.log(data.length);
+
+        // TODO, 
+        // * build a map of SI to content dict
+        // * display SI list
+        // * click SI list and switch to content list
+
+        var si_hash = {};
+        var si_count = 0;
+        $.each(data, function(k, v){
+          if (!(v[0] in si_hash)) {
+            si_hash[v[0]] = 1;
+            si_count += 1;
+          } else {
+            si_hash[v[0]] += 1;
+          }
+          console.log(si_count);
+        });
+        $("#js-info-batches").text("Batches " + si_count);
+        $("#js-info-batches").on("click", function(){
+          $("#info-batches-table").toggle();
+        });
+
+        var source = $("#info-batches-table-template").html();
+        var template = Handlebars.compile(source);
+        var html = template({'batches': si_hash});
+        $("#info-batches-table").html(html);
+
       });
     </script>
   </body>
